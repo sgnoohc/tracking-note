@@ -266,3 +266,6 @@ What is Muls?
 
 What is PCA?
 
+## CMS tracking coordinate system
+
+[https://github.com/cms-sw/cmssw/blob/master/DataFormats/TrackReco/interface/TrackBase.h](https://github.com/cms-sw/cmssw/blob/master/DataFormats/TrackReco/interface/TrackBase.h)
