@@ -42,3 +42,15 @@ Left over
 1. Did I guess the prefix meanings correctly?
 2. ph2_bbxi branch seems to be declared twice (fix?)
 3. What are the meanings of the left overs?
+
+### Playing around with tracking ntuple
+
+1. What does sim_pdgId = 22 mean..?
+   2212, 211, 321, 22, 
+1. What are the pca_pt == 0 non-mu events
+
+### Petal TEC for Run-1
+
+Staggered
+
+    https://cds.cern.ch/record/1431470/files/TECpetal.jpg?subformat=icon-1440
