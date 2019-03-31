@@ -91,6 +91,9 @@ class SDLModule
         // The unique detector ID
         unsigned int detId;
 
+        // The modules are put in alternating order where the modules are inverted every other one
+        bool isInverted;
+
         // vector of hits
         std::vector<SDLRecHit> hits;
 
