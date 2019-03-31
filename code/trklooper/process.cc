@@ -772,6 +772,27 @@ int main(int argc, char** argv)
     ana.histograms.addVecHistogram("simhit_side"            , 5         , 0 ,       5       , [&]() { std::vector<float> rtn(trk.simhit_side().begin()      , trk.simhit_side().end()); return rtn; } );
     ana.histograms.addVecHistogram("simhit_subdet"          , 10        , 0 ,       10      , [&]() { std::vector<float> rtn(trk.simhit_subdet().begin()    , trk.simhit_subdet().end()); return rtn; } );
 
+    ana.histograms.add2DVecHistogram("all_ph2_z", 1080, 0, 300, "all_ph2_r", 1080, 0, 300,
+            [&]()
+            {
+                std::vector<float> rtn;
+                for (unsigned int ih = 0; ih < trk.ph2_z().size(); ++ih)
+                {
+                    rtn.push_back(fabs(trk.ph2_z()[ih]));
+                }
+                return rtn;
+            },
+            [&]()
+            {
+                std::vector<float> rtn;
+                for (unsigned int ih = 0; ih < trk.ph2_x().size(); ++ih)
+                {
+                    rtn.push_back(sqrt(trk.ph2_x()[ih]*trk.ph2_x()[ih] + trk.ph2_y()[ih]*trk.ph2_y()[ih]));
+                }
+                return rtn;
+            }
+            );
+
 
 // vector<float>         &simhit_eloss     ();
 // vector<float>         &simhit_px        ();
