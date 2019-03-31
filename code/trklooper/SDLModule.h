@@ -1,6 +1,10 @@
 #ifndef SDLModule_h
 #define SDLModule_h
 
+#include <vector>
+
+#include "SDLRecHit.h"
+
 class SDLModule
 {
 
@@ -86,6 +90,9 @@ class SDLModule
 
         // The unique detector ID
         unsigned int detId;
+
+        // vector of hits
+        std::vector<SDLRecHit> hits;
 
     public:
 
