@@ -18,12 +18,12 @@ namespace SDL
             void setX(float x);
             void setY(float y);
             void setZ(float z);
-            float x();
-            float y();
-            float z();
-            float X();
-            float Y();
-            float Z();
+            const float& x();
+            const float& y();
+            const float& z();
+            const float& X();
+            const float& Y();
+            const float& Z();
 
     };
 

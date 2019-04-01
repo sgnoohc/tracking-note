@@ -27,32 +27,32 @@ void SDL::Hit::setZ(float z)
     z_ = z;
 }
 
-float SDL::Hit::x()
+const float& SDL::Hit::x()
 {
     return x_;
 }
 
-float SDL::Hit::y()
+const float& SDL::Hit::y()
 {
     return y_;
 }
 
-float SDL::Hit::z()
+const float& SDL::Hit::z()
 {
     return z_;
 }
 
-float SDL::Hit::X()
+const float& SDL::Hit::X()
 {
     return x_;
 }
 
-float SDL::Hit::Y()
+const float& SDL::Hit::Y()
 {
     return y_;
 }
 
-float SDL::Hit::Z()
+const float& SDL::Hit::Z()
 {
     return z_;
 }

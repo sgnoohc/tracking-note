@@ -58,3 +58,7 @@ std::vector<MiniDoublet> SDL::Module::miniDoublets()
     return miniDoublets_;
 }
 
+void SDL::Module::addHit(Hit hit)
+{
+    hits_.push_back(hit);
+}

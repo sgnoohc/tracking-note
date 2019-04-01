@@ -98,27 +98,29 @@ namespace SDL
             bool isInverted_;
 
             // vector of hits
-            std::vector<Hit> hits_;
+            std::vector<Hit*> hits_;
 
             // vector of mini-doublets
-            std::vector<MiniDoublet> miniDoublets_;
+            std::vector<MiniDoublet*> miniDoublets_;
 
         public:
 
+            // constructor/destructor
             Module();
-
             ~Module();
 
-            unsigned short order(); 
-            unsigned short rod();
-            unsigned short ring();
-            unsigned short subdet();
-            unsigned short module();
-            unsigned short isLower();
-            unsigned int detId();
-            bool isInverted();
-            std::vector<Hit> hits();
-            std::vector<MiniDoublet> miniDoublets();
+            // accessor functions
+            const unsigned short& order(); 
+            const unsigned short& rod();
+            const unsigned short& ring();
+            const unsigned short& subdet();
+            const unsigned short& module();
+            const unsigned short& isLower();
+            const unsigned int& detId();
+            const bool& isInverted();
+            const std::vector<Hit*>& hits();
+            const std::vector<MiniDoublet*>& miniDoublets();
+            void addHit(Hit* hit);
 
     };
 
