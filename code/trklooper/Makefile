@@ -22,10 +22,11 @@ EXTRACFLAGS = $(shell rooutil-config)
 EXTRAFLAGS  = -fPIC -ITMultiDrawTreePlayer -Wunused-variable -lTMVA -lEG -lGenVector -lXMLIO -lMLP -lTreePlayer
 
 $(EXE): $(OBJECTS) trktree.o
-	$(LD) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) $(ROOTLIBS) $(EXTRAFLAGS) -o $@
+	$(LD) $(CXXFLAGS) $(LDFLAGS) $^ $(ROOTLIBS) $(EXTRAFLAGS) -o $@
 
 %.o: %.cc
-	$(CC) $(CFLAGS) $(EXTRACFLAGS) $< -c
+	$(CC) $(CFLAGS) $(EXTRACFLAGS) $< -c -o $@
 
 clean:
 	rm -f *.o $(EXE)
+	rm -f SDL/*.o

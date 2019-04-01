@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "Hit.h"
+#include "MiniDoublet.h"
 
 namespace SDL
 {
@@ -97,8 +98,11 @@ namespace SDL
             // The modules are put in alternating order where the modules are inverted every other one
             bool isInverted_;
 
-            // vector of hits
-            std::vector<Hit*> hits_;
+            // vector of lower hits
+            std::vector<Hit*> lowerHits_;
+
+            // vector of upper hits
+            std::vector<Hit*> upperHits_;
 
             // vector of mini-doublets
             std::vector<MiniDoublet*> miniDoublets_;
@@ -121,6 +125,9 @@ namespace SDL
             const std::vector<Hit*>& hits();
             const std::vector<MiniDoublet*>& miniDoublets();
             void addHit(Hit* hit);
+
+            // Make mini doublets by combining two hits
+            void makeMiniDoublets();
 
     };
 

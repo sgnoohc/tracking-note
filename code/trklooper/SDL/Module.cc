@@ -8,57 +8,75 @@ SDL::Module::~Module()
 {
 }
 
-unsigned short SDL::Module::order()
+const unsigned short& SDL::Module::order()
 {
     return order_;
 }
 
-unsigned short SDL::Module::rod()
+const unsigned short& SDL::Module::rod()
 {
     return rod_;
 }
 
-unsigned short SDL::Module::ring()
+const unsigned short& SDL::Module::ring()
 {
     return ring_;
 }
 
-unsigned short SDL::Module::subdet()
+const unsigned short& SDL::Module::subdet()
 {
     return subdet_;
 }
 
-unsigned short SDL::Module::module()
+const unsigned short& SDL::Module::module()
 {
     return module_;
 }
 
-unsigned short SDL::Module::isLower()
+const unsigned short& SDL::Module::isLower()
 {
     return isLower_;
 }
 
-unsigned int SDL::Module::detId()
+const unsigned int& SDL::Module::detId()
 {
     return detId_;
 }
 
-bool SDL::Module::isInverted()
+const bool& SDL::Module::isInverted()
 {
     return isInverted_;
 }
 
-std::vector<Hit> SDL::Module::hits()
+const std::vector<SDL::Hit*>& SDL::Module::hits()
 {
     return hits_;
 }
 
-std::vector<MiniDoublet> SDL::Module::miniDoublets()
+const std::vector<SDL::MiniDoublet*>& SDL::Module::miniDoublets()
 {
     return miniDoublets_;
 }
 
-void SDL::Module::addHit(Hit hit)
+void SDL::Module::addHit(SDL::Hit* hit)
 {
     hits_.push_back(hit);
+}
+
+void SDL::Module::makeMiniDoublets()
+{
+
+    // Loop over lower hits
+    for (auto& lowerHit : lowerHits_)
+    {
+
+        // Loop over upper hits
+        for (auto& upperHit : upperHits_)
+        {
+
+
+        }
+
+    }
+
 }
