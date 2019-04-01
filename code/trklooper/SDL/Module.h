@@ -96,6 +96,7 @@ namespace SDL
             unsigned int detId_;
 
             // The modules are put in alternating order where the modules are inverted every other one
+            // TODO: Add description on even/odd module ID # and its relation to PS inversions
             bool isInverted_;
 
             // vector of hits
