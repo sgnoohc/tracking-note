@@ -29,7 +29,7 @@ namespace SDL
             // 0: lying along beam (or tilted)
             // 1: lying along transverse (e.g. endcap)
             // For side == 3, order is always 0
-            unsigned short order_; 
+            unsigned short order_;
 
             // Index of which rod in the barrel
             // Closest to x-axis is rod = 1, and it goes counter-clockwise
@@ -92,20 +92,14 @@ namespace SDL
             // isLower is always the pixel if it's a PS module, if it's a 2S module it's whichever is the protruding side when 2S are staggered
             unsigned short isLower_;
 
-            // The unique detector ID
+            // The unique detector ID for the lower layer
             unsigned int detId_;
 
             // The modules are put in alternating order where the modules are inverted every other one
             bool isInverted_;
 
-            // vector of lower hits
-            std::vector<Hit*> lowerHits_;
-
-            // vector of upper hits
-            std::vector<Hit*> upperHits_;
-
-            // vector of mini-doublets
-            std::vector<MiniDoublet*> miniDoublets_;
+            // vector of hits
+            std::vector<Hit*> hits_;
 
         public:
 
@@ -114,20 +108,16 @@ namespace SDL
             ~Module();
 
             // accessor functions
-            const unsigned short& order(); 
-            const unsigned short& rod();
-            const unsigned short& ring();
-            const unsigned short& subdet();
-            const unsigned short& module();
-            const unsigned short& isLower();
-            const unsigned int& detId();
-            const bool& isInverted();
-            const std::vector<Hit*>& hits();
-            const std::vector<MiniDoublet*>& miniDoublets();
+            const unsigned short& order() const;
+            const unsigned short& rod() const;
+            const unsigned short& ring() const;
+            const unsigned short& subdet() const;
+            const unsigned short& module() const;
+            const unsigned short& isLower() const;
+            const unsigned int& detId() const;
+            const bool& isInverted() const;
+            const std::vector<Hit*>& hits() const;
             void addHit(Hit* hit);
-
-            // Make mini doublets by combining two hits
-            void makeMiniDoublets();
 
     };
 
