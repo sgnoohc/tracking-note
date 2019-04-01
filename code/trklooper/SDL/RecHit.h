@@ -7,9 +7,9 @@ namespace SDL
     class RecHit
     {
         private:
-            float x;
-            float y;
-            float z;
+            float x_;
+            float y_;
+            float z_;
 
         public:
             RecHit();

@@ -16,35 +16,35 @@ namespace SDL
             // Layer
             // when order == 0, layer ranges from 1 to 6
             // when order == 1, layer ranges from 1 to 5
-            unsigned short layer;
+            unsigned short layer_;
 
             // Side
             // 1 = -z side of the endcap modules
             // 2 = +z side of the endcap modules
             // 3 = barrel modules
-            unsigned short side; // 1: 2: 3: barrel
+            unsigned short side_; // 1: 2: 3: barrel
 
             // Orientation of the module
             // 0: lying along beam (or tilted)
             // 1: lying along transverse (e.g. endcap)
             // For side == 3, order is always 0
-            unsigned short order; 
+            unsigned short order_; 
 
             // Index of which rod in the barrel
             // Closest to x-axis is rod = 1, and it goes counter-clockwise
             // total number of rods for each layer: 18, 26, 36, 48, 60, and 78
             // if order==1, rod is always 0
-            unsigned short rod;
+            unsigned short rod_;
 
             // Index of which ring in the endcap
             // For the layer 1 and 2, there are 15 rings, first 10 are PS, the latter 5 are 2S
             // For the layer 3, 4, and 5, there are 12 rings, first 7 are PS, the latter 5 are 2S
             // if order==0, ring is always 0
-            unsigned short ring;
+            unsigned short ring_;
 
             // 4: endcap (i.e. side 1 or 2 and order 1)
             // 5: barrel (i.e. = order 0)
-            unsigned short subdet;
+            unsigned short subdet_;
 
             // For order==1 the # of module depends on how far away from beam spot,
             // module 1 is closest along the x-axis
@@ -86,19 +86,19 @@ namespace SDL
             // layer 1, side 1, or 2: 18 modules
             // layer 2, side 1, or 2: 26 modules
             // layer 3, side 1, or 2: 36 modules
-            unsigned short module;
+            unsigned short module_;
 
             // isLower is always the pixel if it's a PS module, if it's a 2S module it's whichever is the protruding side when 2S are staggered
-            unsigned short isLower;
+            unsigned short isLower_;
 
             // The unique detector ID
-            unsigned int detId;
+            unsigned int detId_;
 
             // The modules are put in alternating order where the modules are inverted every other one
-            bool isInverted;
+            bool isInverted_;
 
             // vector of hits
-            std::vector<RecHit> hits;
+            std::vector<RecHit> hits_;
 
         public:
 

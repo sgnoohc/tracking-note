@@ -4,7 +4,7 @@ SDL::RecHit::RecHit()
 {
 }
 
-SDL::RecHit::RecHit(float x_, float y_, float z_): x(x_), y(y_), z(z_)
+SDL::RecHit::RecHit(float x, float y, float z): x_(x), y_(y), z_(z)
 {
 }
 
@@ -12,47 +12,47 @@ SDL::RecHit::RecHit(float x_, float y_, float z_): x(x_), y(y_), z(z_)
 {
 }
 
-void SDL::RecHit::setX(float x_)
+void SDL::RecHit::setX(float x)
 {
-    x = x_;
+    x_ = x;
 }
 
-void SDL::RecHit::setY(float y_)
+void SDL::RecHit::setY(float y)
 {
-    y = y_;
+    y_ = y;
 }
 
-void SDL::RecHit::setZ(float z_)
+void SDL::RecHit::setZ(float z)
 {
-    z = z_;
+    z_ = z;
 }
 
 float SDL::RecHit::x()
 {
-    return x;
+    return x_;
 }
 
 float SDL::RecHit::y()
 {
-    return y;
+    return y_;
 }
 
 float SDL::RecHit::z()
 {
-    return z;
+    return z_;
 }
 
 float SDL::RecHit::X()
 {
-    return x;
+    return x_;
 }
 
 float SDL::RecHit::Y()
 {
-    return y;
+    return y_;
 }
 
 float SDL::RecHit::Z()
 {
-    return z;
+    return z_;
 }
