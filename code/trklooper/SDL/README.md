@@ -2,7 +2,7 @@
 
 ### Event
 
-```Event``` will hold all the pointers to hits, modules, mini-doublets, and more in the instance.  
+Holds all the pointers to hits, modules, mini-doublets, and more in the instance.  
 
 ### Hit
 
