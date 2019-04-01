@@ -1,10 +1,10 @@
-#ifndef RecHit_h
-#define RecHit_h
+#ifndef Hit_h
+#define Hit_h
 
 namespace SDL
 {
 
-    class RecHit
+    class Hit
     {
         private:
             float x_;
@@ -12,9 +12,9 @@ namespace SDL
             float z_;
 
         public:
-            RecHit();
-            RecHit(float x, float y, float z);
-            ~RecHit();
+            Hit();
+            Hit(float x, float y, float z);
+            ~Hit();
             void setX(float x);
             void setY(float y);
             void setZ(float z);

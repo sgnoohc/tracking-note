@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "RecHit.h"
+#include "Hit.h"
 
 namespace SDL
 {
@@ -98,13 +98,27 @@ namespace SDL
             bool isInverted_;
 
             // vector of hits
-            std::vector<RecHit> hits_;
+            std::vector<Hit> hits_;
+
+            // vector of mini-doublets
+            std::vector<MiniDoublet> miniDoublets_;
 
         public:
 
             Module();
 
             ~Module();
+
+            unsigned short order(); 
+            unsigned short rod();
+            unsigned short ring();
+            unsigned short subdet();
+            unsigned short module();
+            unsigned short isLower();
+            unsigned int detId();
+            bool isInverted();
+            std::vector<Hit> hits();
+            std::vector<MiniDoublet> miniDoublets();
 
     };
 
