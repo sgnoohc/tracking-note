@@ -32,7 +32,7 @@ namespace SDL
             unsigned short order_;
 
             // Index of which rod in the barrel
-            // Closest to x-axis is rod = 1, and it goes counter-clockwise
+            // Closest to the positive x-axis line is rod = 1, and it goes counter-clockwise
             // total number of rods for each layer: 18, 26, 36, 48, 60, and 78
             // if order==1, rod is always 0
             unsigned short rod_;
@@ -48,7 +48,7 @@ namespace SDL
             unsigned short subdet_;
 
             // For order==1 the # of module depends on how far away from beam spot,
-            // module 1 is closest along the x-axis
+            // module 1 is closest to the positive x-axis line
             // layer 1 or 2, ring 1: 20 modules
             // layer 1 or 2, ring 2: 24 modules
             // layer 1 or 2, ring 3: 24 modules
