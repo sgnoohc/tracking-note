@@ -31,6 +31,20 @@ void SDL::Hit::setZ(float z)
     z_ = z;
 }
 
+void SDL::Hit::setDerivedQuantities(float z)
+{
+
+    // Setting r3
+    r3_ = sqrt(x_ * x_ + y_ * y_ + z_ * z_);
+
+    // Setting rt
+    rt_ = sqrt(x_ * x_ + y_ * y_);
+
+    // Setting phi
+    phi_ = M_PI + SDL::Math::ATan2(-y_, -x_);
+
+}
+
 const float& SDL::Hit::x() const
 {
     return x_;
@@ -46,28 +60,45 @@ const float& SDL::Hit::z() const
     return z_;
 }
 
-const float& SDL::Hit::X() const
+const float& SDL::Hit::r3() const
 {
-    return x_;
+    return r3_;
 }
 
-const float& SDL::Hit::Y() const
+const float& SDL::Hit::rt() const
 {
-    return y_;
+    return rt_;
 }
 
-const float& SDL::Hit::Z() const
+const float& SDL::Hit::phi() const
 {
-    return z_;
+    return phi_;
 }
 
 float SDL::Hit::deltaPhi(SDL::Hit* hit)
 {
+    return SDL::Math::Phi_mpi_pi(hit->phi() - phi_);
 }
 
 float SDL::Hit::deltaPhiChange(SDL::Hit* hit)
 {
+    // Compute the change in phi going from point *this -> *hit
+    //
+    //  \       o <-- *hit
+    //   \     /
+    //    \ f /
+    //     \^/
+    //      o <-- *this
+    //       \
+    //        \
+    //         \
+    //          x
+    //
+
+    return this->deltaPhi((*hit) - (*this));
+
 }
+
 // operators
 bool SDL::Hit::operator !=(const Hit& hit) const
 {

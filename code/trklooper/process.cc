@@ -2,6 +2,8 @@
 #include "rooutil.h"
 #include "cxxopts.h"
 
+#include "SDL/Event.h"
+
 class AnalysisConfig {
 
 public:
@@ -1255,6 +1257,10 @@ int main(int argc, char** argv)
         //Do what you need to do in for each event here
         //To save use the following function
         ana.cutflow.fill();
+
+        // Testing
+
+        SDL::Event event;
     }
 
     // Writing output file

@@ -45,6 +45,7 @@ namespace SDL
 
             // 4: endcap (i.e. side 1 or 2 and order 1)
             // 5: barrel (i.e. = order 0)
+            // (NOTE: Entirely redundant to "order")
             unsigned short subdet_;
 
             // For order==1 the # of module depends on how far away from beam spot,

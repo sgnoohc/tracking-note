@@ -17,3 +17,11 @@ float SDL::Math::Phi_mpi_pi(float x)
     return x;
 
 }
+
+float SDL::Math::ATan2(float y, float x)
+{
+    if (x != 0) return  atan2(y, x);
+    if (y == 0) return  0;
+    if (y >  0) return  Pi() / 2;
+    else        return -Pi() / 2;
+}

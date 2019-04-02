@@ -14,6 +14,9 @@ namespace SDL
             float x_;
             float y_;
             float z_;
+            float r3_;
+            float rt_;
+            float phi_;
 
         public:
             Hit();
@@ -23,12 +26,13 @@ namespace SDL
             void setX(float x);
             void setY(float y);
             void setZ(float z);
+            void setDerivedQuantities();
             const float& x() const;
             const float& y() const;
             const float& z() const;
-            const float& X() const;
-            const float& Y() const;
-            const float& Z() const;
+            const float& rt() const;
+            const float& r3() const;
+            const float& phi() const;
 
             // variable computation between two hits
             float deltaPhi(Hit* hit);
