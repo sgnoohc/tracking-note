@@ -22,6 +22,6 @@ float SDL::Math::ATan2(float y, float x)
 {
     if (x != 0) return  atan2(y, x);
     if (y == 0) return  0;
-    if (y >  0) return  Pi() / 2;
-    else        return -Pi() / 2;
+    if (y >  0) return  M_PI / 2;
+    else        return -M_PI / 2;
 }

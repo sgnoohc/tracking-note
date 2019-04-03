@@ -1,15 +1,18 @@
 #include "Hit.h"
 
-SDL::Hit::Hit()
+SDL::Hit::Hit(): x_(0), y_(0), z_(0)
 {
+    setDerivedQuantities();
 }
 
 SDL::Hit::Hit(float x, float y, float z): x_(x), y_(y), z_(z)
 {
+    setDerivedQuantities();
 }
 
 SDL::Hit::Hit(const Hit& hit): x_(hit.x()), y_(hit.y()), z_(hit.z())
 {
+    setDerivedQuantities();
 }
 
 SDL::Hit::~Hit()
@@ -31,7 +34,7 @@ void SDL::Hit::setZ(float z)
     z_ = z;
 }
 
-void SDL::Hit::setDerivedQuantities(float z)
+void SDL::Hit::setDerivedQuantities()
 {
 
     // Setting r3
@@ -75,27 +78,29 @@ const float& SDL::Hit::phi() const
     return phi_;
 }
 
-float SDL::Hit::deltaPhi(SDL::Hit* hit)
+float SDL::Hit::deltaPhi(SDL::Hit hit)
 {
-    return SDL::Math::Phi_mpi_pi(hit->phi() - phi_);
+    return SDL::Math::Phi_mpi_pi(hit.phi() - phi_);
 }
 
-float SDL::Hit::deltaPhiChange(SDL::Hit* hit)
+float SDL::Hit::deltaPhiChange(SDL::Hit hit)
 {
-    // Compute the change in phi going from point *this -> *hit
-    //
-    //  \       o <-- *hit
-    //   \     /
-    //    \ f /
-    //     \^/
-    //      o <-- *this
-    //       \
-    //        \
-    //         \
-    //          x
-    //
+    /*
+    Compute the change in phi going from point *this -> *hit
+    
+     \       o <-- *hit
+      \     /
+       \ f /
+        \^/
+         o <-- *this
+          \
+           \
+            \
+             x
+    
+    */
 
-    return this->deltaPhi((*hit) - (*this));
+    return this->deltaPhi(hit - (*this));
 
 }
 
@@ -108,6 +113,11 @@ bool SDL::Hit::operator !=(const Hit& hit) const
 bool SDL::Hit::operator ==(const Hit& hit) const
 {
     return hit.x() == x_ and hit.y() == y_ and hit.z() == z_ ? true : false;
+}
+
+SDL::Hit SDL::Hit::operator - (const Hit& hit) const
+{
+    return Hit(x_-hit.x(), y_-hit.y(), z_-hit.z());
 }
 
 SDL::Hit& SDL::Hit::operator = (const Hit& hit)

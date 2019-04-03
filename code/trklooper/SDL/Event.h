@@ -3,6 +3,9 @@
 
 #include <vector>
 #include <map>
+#include <stdlib.h>
+#include <stdexcept>
+#include <iostream>
 
 #include "Module.h"
 #include "Hit.h"
@@ -13,14 +16,14 @@ namespace SDL
     {
         private:
 
+            // map of modules
+            std::map<unsigned int, Module> modulesMapByDetId_;
+
+            // List of hits
+            std::vector<Hit> hits_;
+
             // List of module pointers
             std::vector<Module*> modules_;
-
-            // List of hit pointers
-            std::vector<Hit*> hits_;
-
-            // map of module pointers
-            std::map<unsigned int, Module*> modulesMapByDetId_;
 
         public:
 
@@ -28,7 +31,12 @@ namespace SDL
 
             ~Event();
 
-            void addModule(Module* module);
+            bool hasModule(unsigned int detId);
+
+            Module& getModule(unsigned int detId);
+
+            void addHitToModule(Hit hit, unsigned int detId);
+
 
     };
 }

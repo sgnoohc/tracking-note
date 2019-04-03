@@ -1261,6 +1261,13 @@ int main(int argc, char** argv)
         // Testing
 
         SDL::Event event;
+
+        for (unsigned int ihit = 0; ihit < trk.ph2_x().size(); ++ihit)
+        {
+
+            event.addHitToModule(SDL::Hit(trk.ph2_x()[ihit], trk.ph2_y()[ihit], trk.ph2_z()[ihit]), trk.ph2_detId()[ihit]);
+            
+        }
     }
 
     // Writing output file

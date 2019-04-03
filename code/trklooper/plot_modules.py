@@ -434,6 +434,22 @@ def rz_layer1_side1_evenmodules():
     c1.SaveAs("plots/lin/rz_layer1_side1_evenmodule.pdf")
     c1.SaveAs("plots/lin/rz_layer1_side1_evenmodule.png")
 
+def rz_lower():
+    ttree.SetMarkerColor(1)
+    ttree.Draw("sqrt(ph2_x**2+ph2_y**2):ph2_z", "")
+    ttree.SetMarkerColor(2)
+    ttree.Draw("sqrt(ph2_x**2+ph2_y**2):ph2_z", "ph2_isLower==1", "same")
+    c1.SaveAs("plots/lin/rz_lower.pdf")
+    c1.SaveAs("plots/lin/rz_lower.png")
+
+def rz_upper():
+    ttree.SetMarkerColor(1)
+    ttree.Draw("sqrt(ph2_x**2+ph2_y**2):ph2_z", "")
+    ttree.SetMarkerColor(2)
+    ttree.Draw("sqrt(ph2_x**2+ph2_y**2):ph2_z", "ph2_isUpper==1", "same")
+    c1.SaveAs("plots/lin/rz_upper.pdf")
+    c1.SaveAs("plots/lin/rz_upper.png")
+
 if __name__ == "__main__":
 
     # rz_side1_layer1_order0_moduleall()
@@ -463,4 +479,7 @@ if __name__ == "__main__":
     # rz_layergeq4_oddmodules()
     # rz_layergeq4_evenmodules()
     # xy_layergeq4_evenmodules()
-    rz_layer1_side1_evenmodules()
+    # rz_layer1_side1_evenmodules()
+    rz_lower()
+    rz_upper()
+

@@ -5,6 +5,8 @@
 #include <iostream>
 #include <cmath>
 
+#include "Math.h"
+
 namespace SDL
 {
 
@@ -18,6 +20,8 @@ namespace SDL
             float rt_;
             float phi_;
 
+            void setDerivedQuantities();
+
         public:
             Hit();
             Hit(float x, float y, float z);
@@ -26,7 +30,6 @@ namespace SDL
             void setX(float x);
             void setY(float y);
             void setZ(float z);
-            void setDerivedQuantities();
             const float& x() const;
             const float& y() const;
             const float& z() const;
@@ -35,12 +38,13 @@ namespace SDL
             const float& phi() const;
 
             // variable computation between two hits
-            float deltaPhi(Hit* hit);
-            float deltaPhiChange(Hit* hit);
+            float deltaPhi(Hit);
+            float deltaPhiChange(Hit);
 
             // operators
             bool operator !=(const Hit&) const;
             bool operator ==(const Hit&) const;
+            Hit  operator - (const Hit&) const;
             Hit& operator = (const Hit&);
             Hit& operator -=(const Hit&);
             Hit& operator +=(const Hit&);
