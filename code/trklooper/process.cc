@@ -1259,21 +1259,38 @@ int main(int argc, char** argv)
         //To save use the following function
         ana.cutflow.fill();
 
-        // Testing
+        // <--------------------------
+        // <--------------------------
+        // <--------------------------
+        //
+        // ***************************
+        // Testing SDL Implementations
+        // ***************************
+        //
 
+        // Main instance that will hold modules, hits, minidoublets, etc. (i.e. main data structure)
         SDL::Event event;
 
-        std::cout <<  " trk.ph2_x().size(): " << trk.ph2_x().size() <<  std::endl;
-
+        // Adding hits to modules
         for (unsigned int ihit = 0; ihit < trk.ph2_x().size(); ++ihit)
         {
-
-            event.addHitToModule(SDL::Hit(trk.ph2_x()[ihit], trk.ph2_y()[ihit], trk.ph2_z()[ihit]), trk.ph2_detId()[ihit]);
-            
+            // Takes two arguments, SDL::Hit, and detId
+            // SDL::Event internally will structure whether we already have the module instance or we need to create a new one.
+            event.addHitToModule(
+                    // a hit
+                    SDL::Hit(trk.ph2_x()[ihit], trk.ph2_y()[ihit], trk.ph2_z()[ihit]),
+                    // add to module with "detId"
+                    trk.ph2_detId()[ihit]
+                    );
         }
 
-        // The following modified ostream will prefix "SDL::  " for every line
+        // Print content in the event
+        // (SDL::cout is a modified version of std::cout where each line is prefixed by SDL::)
         SDL::cout << event;
+
+        // <--------------------------
+        // <--------------------------
+        // <--------------------------
     }
 
     // Writing output file
