@@ -10,26 +10,29 @@ The namespace ```SDL``` contains:
         class MiniDoublet;
 
         namespace Math;
+
+        // Few extra print utility classes in PrintUtil.h (not important.)
     }
 
 ### Event
 
-Holds all the pointers to hits, modules, mini-doublets, and more in the instance.  
+Holds all the pointers to hits, modules, mini-doublets (NOTE: to be done), and more in the instance.  
 
 ### Hit
 
-Currently only contains 3-vector. May need to add ```detId```. I think it's okay to not have other id's. (e.g. order, layer etc.)  
+Currently only contains 3-vector. May need to add ```detId```. (Haven't decided.)
 
 ### Module
 
-A module is defined as one side of the double-modules. (i.e. 2S or PS)  
+A module is defined as *one* side of the double-modules.
 Each side of the double-modules has unique ```detId```.  
 
-Each module has various qualifiers. The ```Module.h``` explains them.
+Each module has various qualifiers (e.g. layer, subdet, side, etc.).  
+The ```Module.h``` explains them.  
 
 ### MiniDoublet
 
-Holds two hits. Doesn't have much implemented.
+Holds two hits. Doesn't have much implemented. (TODO)
 
 ### Math
 
