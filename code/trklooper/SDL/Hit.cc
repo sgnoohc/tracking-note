@@ -144,3 +144,11 @@ SDL::Hit& SDL::Hit::operator +=(const Hit& hit)
     return *this;
 }
 
+namespace SDL
+{
+    std::ostream& operator<<(std::ostream& out, const Hit& hit)
+    {
+        out << "Hit(x=" << hit.x() << ", y=" << hit.y() << ", z=" << hit.z() << ", r3=" << hit.r3() << ", rt=" << hit.rt() << ", phi=" << hit.phi() << ")";
+        return out;
+    }
+}

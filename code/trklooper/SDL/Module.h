@@ -2,6 +2,7 @@
 #define Module_h
 
 #include <vector>
+#include <iostream>
 
 #include "Hit.h"
 #include "MiniDoublet.h"
@@ -212,6 +213,9 @@ namespace SDL
             static unsigned short parseRing(unsigned int);
             static unsigned short parseModule(unsigned int);
             static unsigned short parseIsLower(unsigned int);
+
+            // printing
+            friend std::ostream& operator<<(std::ostream& os, const Module& module);
 
     };
 

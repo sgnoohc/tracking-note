@@ -35,8 +35,11 @@ namespace SDL
 
             Module& getModule(unsigned int detId);
 
+            const std::vector<Module*> getModulePtrs() const;
+
             void addHitToModule(Hit hit, unsigned int detId);
 
+            friend std::ostream& operator<<(std::ostream& out, const Event& event);
 
     };
 }

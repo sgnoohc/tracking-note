@@ -171,3 +171,25 @@ unsigned short SDL::Module::parseIsLower(unsigned int detId)
     return (detId & 1);
 }
 
+namespace SDL
+{
+    std::ostream& operator<<(std::ostream& out, const Module& module)
+    {
+        out << "==============================" << std::endl;
+        out << "Module(detId=" << module.detId();
+        out << ", subdet=" << module.subdet_;
+        out << ", side=" << module.side_;
+        out << ", layer=" << module.layer_;
+        out << ", rod=" << module.rod_;
+        out << ", ring=" << module.ring_;
+        out << ", module=" << module.module_;
+        out << ", isLower=" << module.isLower_;
+        out << ")" << std::endl;
+        out << "==============================" << std::endl;
+        for (auto& hit : module.hits())
+            out << *hit << std::endl;
+        out << "" << std::endl;
+
+        return out;
+    }
+}

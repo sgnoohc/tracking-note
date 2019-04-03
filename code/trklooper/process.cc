@@ -2,7 +2,8 @@
 #include "rooutil.h"
 #include "cxxopts.h"
 
-#include "SDL/Event.h"
+#include "SDL/Event.h" // SDL::Event
+#include "SDL/PrintUtil.h" // SDL::out
 
 class AnalysisConfig {
 
@@ -1262,12 +1263,17 @@ int main(int argc, char** argv)
 
         SDL::Event event;
 
+        std::cout <<  " trk.ph2_x().size(): " << trk.ph2_x().size() <<  std::endl;
+
         for (unsigned int ihit = 0; ihit < trk.ph2_x().size(); ++ihit)
         {
 
             event.addHitToModule(SDL::Hit(trk.ph2_x()[ihit], trk.ph2_y()[ihit], trk.ph2_z()[ihit]), trk.ph2_detId()[ihit]);
             
         }
+
+        // The following modified ostream will prefix "SDL::  " for every line
+        SDL::cout << event;
     }
 
     // Writing output file
