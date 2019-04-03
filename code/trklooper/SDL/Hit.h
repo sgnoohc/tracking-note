@@ -16,20 +16,26 @@ namespace SDL
             float x_;
             float y_;
             float z_;
-            float r3_;
-            float rt_;
+            float r3_; // 3d distance from origin
+            float rt_; // transverse distance
             float phi_;
 
             void setDerivedQuantities();
 
         public:
+
+            // cnstr/destr
             Hit();
             Hit(float x, float y, float z);
             Hit(const Hit&);
             ~Hit();
+
+            // modifying class content
             void setX(float x);
             void setY(float y);
             void setZ(float z);
+
+            // accessor functions
             const float& x() const;
             const float& y() const;
             const float& z() const;
@@ -41,7 +47,7 @@ namespace SDL
             float deltaPhi(Hit);
             float deltaPhiChange(Hit);
 
-            // operators
+            // operator overloading
             bool operator !=(const Hit&) const;
             bool operator ==(const Hit&) const;
             Hit  operator - (const Hit&) const;
@@ -49,8 +55,9 @@ namespace SDL
             Hit& operator -=(const Hit&);
             Hit& operator +=(const Hit&);
 
-            // pretty printing
+            // cout printing
             friend std::ostream& operator<<(std::ostream& out, const Hit& hit);
+
     };
 
 }

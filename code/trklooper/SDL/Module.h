@@ -202,6 +202,7 @@ namespace SDL
             const bool& isInverted() const;
             const std::vector<Hit*>& hits() const;
 
+            // modifying the class content
             void setDetId(unsigned int);
             void addHit(Hit* hit);
 
